@@ -1,8 +1,9 @@
-import { CardProduct } from "./components/shared/products/CardProduct"
+import { RouterProvider } from "react-router-dom"
+import { router } from "./routes"
 
 function App() {
   return (
-    <CardProduct />
+    <RouterProvider router={router} />
   )
 }
 

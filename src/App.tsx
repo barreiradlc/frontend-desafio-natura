@@ -1,11 +1,10 @@
-import { Button } from "@/components/ui/button"
+import { CardProduct } from "./components/shared/products/CardProduct"
 
 function App() {
   return (
-    <div>
-      <Button>Click me</Button>
-    </div>
+    <CardProduct />
   )
 }
 
 export { App }
+

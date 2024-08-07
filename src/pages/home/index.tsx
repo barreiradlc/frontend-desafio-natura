@@ -10,10 +10,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useProduct } from "@/contexts/ProductContext"
 import { ChevronDown, ShoppingCart, User, X } from "lucide-react"
 
 
 function Home() {
+  const { products } = useProduct()
+
   return (
     <div>
 
@@ -103,10 +106,10 @@ function Home() {
           </div>
 
           <div className="grid gap-4 grid-cols-4">
-            <CardProduct />
-            <CardProduct />
-            <CardProduct />
-            <CardProduct />
+            {products.map(({ name }) =>
+              <CardProduct name={name} />
+            )}  
+
           </div>
 
           <div className="mx-auto w-full  flex justify-center my-8">

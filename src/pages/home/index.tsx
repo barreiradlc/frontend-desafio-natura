@@ -1,4 +1,4 @@
-import logoImage from "@/assets/logo.png"
+import logoImage from "@/assets/logo.jpeg"
 import { SearchInput } from "@/components/shared/products/SearchInput"
 import { Button } from "@/components/ui/button"
 import {
@@ -77,6 +77,19 @@ function Home() {
         </div>
         {/* Header */}
 
+        {/* Banner */}
+        <div id="banner" className="w-screen bg-banner min-h-96 flex items-center bg-cover">
+          <div className="container">
+            <div className="flex flex-col items-centers prose	">
+              <h1 className="text-white m-0">Presentes que celebram</h1>
+              <h4 className="text-white m-0 py-4">O cuidado entre pais e filhos com preços especiais</h4>
+              <Button className="w-fit bg-white text-black rounded-full" variant="secondary">
+                Presentear
+              </Button>
+            </div>
+          </div>
+        </div>
+        {/* Banner */}
       </div>
 
     </div>

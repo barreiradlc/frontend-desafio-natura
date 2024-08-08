@@ -1,34 +1,14 @@
 import { Header } from "@/components/shared/common/Header"
-import { CardProduct } from "@/components/shared/products/CardProduct"
+import { CardProductGrid } from "@/components/shared/products/CardProductGrid"
 import { Button } from "@/components/ui/button"
 import { useProduct } from "@/contexts/ProductContext"
-import { X } from "lucide-react"
-import { useState } from "react"
 
 function Home() {
   const { products } = useProduct()
-  const [showTopBar, setShowTopBar] = useState(true)
 
-  function dismissTopBar() {
-    setShowTopBar(false)
-  }
 
   return (
     <div>
-
-      {/* Top Bar */}
-      <div id="top-bar" className={`w-screen bg-slate-600 text-white ${!showTopBar && 'hidden'}`}>
-        <div className="container flex flex-row justify-between items-center">
-          <div className="w-full flex flex-row justify-center">
-            <span className="">Aproveite as nossas oportunidades!!!</span>
-          </div>
-          <Button variant="link" onClick={dismissTopBar}>
-            <X color="#ffffff" />
-          </Button>
-        </div>
-      </div>
-      {/* Top Bar */}
-
       {/* Header */}
       <Header />
       {/* Header */}
@@ -56,8 +36,8 @@ function Home() {
           </div>
 
           <div className="grid gap-4 grid-cols-4">
-            {products.map(({ name }) =>
-              <CardProduct id={id} name={name} />
+            {products.map(({ id, name }) =>
+              <CardProductGrid key={id} name={name} />
             )}
 
           </div>

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { useProduct } from "@/contexts/ProductContext"
 
 function Products() {
-  const { products } = useProduct()
+  const { products, fetchMoreProducts, reachedTheEnd } = useProduct()
 
   return (
     <div>
@@ -16,22 +16,20 @@ function Products() {
       <div id="catalog" className="bg-white">
         <div className="container">
 
-          <div className="prose mx-auto w-full text-black">
-            <h2 className="my-8 mx-auto text-center">Descubra as fragrâncias que combinam com você</h2>
-          </div>
-
-          <div className="grid gap-4 grid-cols-4">
+          <div className="flex flex-col">
             {products.map(({ id, name }) =>
               <CardProduct key={id} name={name} />
             )}
-
           </div>
 
-          <div className="mx-auto w-full  flex justify-center my-8">
-            <Button className="text-black rounded-full" variant="outline">
-              Carregar outros
-            </Button>
-          </div>
+          {!reachedTheEnd &&
+            <div className={`mx-auto w-full  flex justify-center my-8`}>
+              <Button className="text-black rounded-full" variant="outline" onClick={fetchMoreProducts}>
+                Carregar outros
+              </Button>
+            </div>
+          }
+
 
         </div>
       </div>

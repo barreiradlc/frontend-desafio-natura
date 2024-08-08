@@ -29,7 +29,6 @@ function ProductContextProvider({ children }: ProductContextProviderProps) {
   async function fetchProducts(query = '') {
     const { data } = await api.get(`/products?query=${query}`)
 
-    console.log(data)
     setProducts(data)
   }
 

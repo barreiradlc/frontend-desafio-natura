@@ -31,71 +31,71 @@ function Home() {
           </Button>
         </div>
       </div>
-        {/* Top Bar */}
+      {/* Top Bar */}
 
-        {/* Header */}
-        <div className="w-screen bg-white text-black py-4">
-          <div className="container flex flex-row justify-between items-center">
-            <div id="logo" className="w-96">
-              <img src={logoImage} />
-            </div>
-            <div id="categories" className="w-24">
-              {/* TODO, considerar fazer componente */}
-              <DropdownMenu >
-                <DropdownMenuTrigger className="w-fill flex flex-row">Produtos <ChevronDown /> </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuLabel>Para quem</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem> todo mundo </DropdownMenuItem>
-                  <DropdownMenuItem> masculina </DropdownMenuItem>
-                  <DropdownMenuItem> feminina </DropdownMenuItem>
-                  <DropdownMenuItem> infantil </DropdownMenuItem>
-                  <DropdownMenuLabel>Nossas marcas</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem> biome </DropdownMenuItem>
-                  <DropdownMenuItem> bothânica </DropdownMenuItem>
-                  <DropdownMenuItem> chronos </DropdownMenuItem>
-                  <DropdownMenuItem>crer Para  Ver </DropdownMenuItem>
-                  <DropdownMenuItem> ekos </DropdownMenuItem>
-                  <DropdownMenuItem> essencial </DropdownMenuItem>
-                  <DropdownMenuItem> kaiak </DropdownMenuItem>
-                  <DropdownMenuItem> lumina </DropdownMenuItem>
-                  <DropdownMenuItem> luna </DropdownMenuItem>
-                  <DropdownMenuItem>mamãe e  Bebê </DropdownMenuItem>
-                  <DropdownMenuItem> tododia </DropdownMenuItem>
-                  <DropdownMenuItem> una </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+      {/* Header */}
+      <div className="w-screen bg-white text-black py-4">
+        <div className="container flex flex-row justify-between items-center">
+          <div id="logo" className="w-96">
+            <img src={logoImage} />
+          </div>
+          <div id="categories" className="w-24">
+            {/* TODO, considerar fazer componente */}
+            <DropdownMenu >
+              <DropdownMenuTrigger className="w-fill flex flex-row">Produtos <ChevronDown /> </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuLabel>Para quem</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem> todo mundo </DropdownMenuItem>
+                <DropdownMenuItem> masculina </DropdownMenuItem>
+                <DropdownMenuItem> feminina </DropdownMenuItem>
+                <DropdownMenuItem> infantil </DropdownMenuItem>
+                <DropdownMenuLabel>Nossas marcas</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem> biome </DropdownMenuItem>
+                <DropdownMenuItem> bothânica </DropdownMenuItem>
+                <DropdownMenuItem> chronos </DropdownMenuItem>
+                <DropdownMenuItem>crer Para  Ver </DropdownMenuItem>
+                <DropdownMenuItem> ekos </DropdownMenuItem>
+                <DropdownMenuItem> essencial </DropdownMenuItem>
+                <DropdownMenuItem> kaiak </DropdownMenuItem>
+                <DropdownMenuItem> lumina </DropdownMenuItem>
+                <DropdownMenuItem> luna </DropdownMenuItem>
+                <DropdownMenuItem>mamãe e  Bebê </DropdownMenuItem>
+                <DropdownMenuItem> tododia </DropdownMenuItem>
+                <DropdownMenuItem> una </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
-            </div>
-            <div id="search" className="w-fit">
-              <SearchInput />
-            </div>
-            <div id="links">
-              <Button variant="link">
-                <ShoppingCart />
-              </Button>
-              <Button variant="link">
-                <User />
-              </Button>
-            </div>
+          </div>
+          <div id="search" className="w-fit">
+            <SearchInput />
+          </div>
+          <div id="links">
+            <Button variant="link">
+              <ShoppingCart />
+            </Button>
+            <Button variant="link">
+              <User />
+            </Button>
           </div>
         </div>
-        {/* Header */}
+      </div>
+      {/* Header */}
 
-        {/* Banner */}
-        <div id="banner" className="w-screen bg-banner min-h-96 flex items-center bg-cover">
-          <div className="container">
-            <div className="flex flex-col items-centers prose	">
-              <h1 className="text-white m-0">Presentes que celebram</h1>
-              <h4 className="text-white m-0 py-4">O cuidado entre pais e filhos com preços especiais</h4>
+      {/* Banner */}
+      <div id="banner" className="w-screen bg-banner min-h-96 flex items-center bg-cover">
+        <div className="container">
+          <div className="flex flex-col items-centers prose	">
+            <h1 className="text-white m-0">Presentes que celebram</h1>
+            <h4 className="text-white m-0 py-4">O cuidado entre pais e filhos com preços especiais</h4>
             <Button className="w-fit bg-white text-black rounded-full hover:bg-slate-400" variant="secondary">
-                Presentear
-              </Button>
-            </div>
+              Presentear
+            </Button>
           </div>
         </div>
-        {/* Banner */}
+      </div>
+      {/* Banner */}
 
       {/* Lista de produtos */}
       <div id="catalog" className="bg-white">
@@ -108,7 +108,7 @@ function Home() {
           <div className="grid gap-4 grid-cols-4">
             {products.map(({ name }) =>
               <CardProduct name={name} />
-            )}  
+            )}
 
           </div>
 

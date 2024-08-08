@@ -1,5 +1,14 @@
+import { Header } from "@/components/shared/common/Header"
+
 function Products() {
-  return <h1> products</h1>
+  return (
+    <div>
+      {/* Header */}
+      <Header />
+      {/* Header */}
+
+    </div>
+  )
 }
 
 export { Products }

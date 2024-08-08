@@ -1,6 +1,5 @@
-import { Star } from "lucide-react"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
 import {
   Card,
   CardDescription,
@@ -8,34 +7,30 @@ import {
   CardTitle
 } from "@/components/ui/card"
 
-
 type CardProps = {
   name?: string
 }
 
-function CardProduct({ name = "Essencial Exclusivo Floral Feminino 100 ml" }: CardProps) {
+function CardProduct({ name }: CardProps) {
   return (
-    <Card >
-
-      <div className="w-full p-4">
-        <Avatar className="object-fill w-full h-full rounded-lg">
-          <AvatarImage src="https://production.na01.natura.com/on/demandware.static/-/Sites-natura-br-storefront-catalog/default/dwcfd986ca/NATBRA-95575_2.jpg" alt="@shadcn" />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
-      </div>
-      <CardHeader>
-        <CardDescription>R$ 154,90</CardDescription>
-
-        <div className="flex flex-row ">
-          <Star />
-          <Star />
-          <Star />
-          <Star />
-          <Star />
+    <Card className="w-fit my-4">
+      <div className="flex flex-row  items-center justify-start">
+        <div className="p-4">
+          <img
+            className="w-32"
+            src="https://production.na01.natura.com/on/demandware.static/-/Sites-natura-br-storefront-catalog/default/dwcfd986ca/NATBRA-95575_2.jpg"
+            alt={name} />
         </div>
+        <CardHeader className="flex flex-col items-start">
+          <CardDescription>{name}</CardDescription>
+          <CardTitle>R$ 154,90</CardTitle>
 
-        <CardTitle>{name}</CardTitle>
-      </CardHeader>
+          <Button className="rounded-full bg-orange-600 text-white w-full my-12 p-4 h-6">
+            Adicionar
+          </Button>
+
+        </CardHeader>
+      </div>
     </Card>
   )
 }

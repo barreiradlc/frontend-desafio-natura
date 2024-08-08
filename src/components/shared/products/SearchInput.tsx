@@ -9,7 +9,7 @@ import { IProduct } from "@/contexts/ProductContext";
 import { api } from "@/lib/http/api";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const LIMIT = 6
+const TAKE = 6
 
 export function SearchInput() {
   const textInput = useRef<HTMLInputElement>(null);
@@ -17,19 +17,18 @@ export function SearchInput() {
   const [products, setProducts] = useState<IProduct[]>([] as IProduct[])
   const [openResults, setOpenResults] = useState(false)
 
-  useEffect(() => {
-    if (query) {
-      setOpenResults(true);
-    }
-    fetchProducts()
-
-  }, [query])
-
   const fetchProducts = useCallback(async () => {
-    const { data } = await api.get(`/products?query=${query}&limit=${LIMIT}`)
+    const { data } = await api.get(`/products?query=${query}&take=${TAKE}&skip=0`)
 
     setProducts(data)
   }, [query])
+
+  useEffect(() => {
+    if (query) {
+      setOpenResults(true);
+      fetchProducts()
+    }
+  }, [fetchProducts, query])
 
   function closeResults() {
     setOpenResults(false)
@@ -44,7 +43,7 @@ export function SearchInput() {
             ref={textInput}
             onMouseLeave={closeResults}
             onChange={({ target: { value } }) => setQuery(value)}
-            type="email"
+            type="text"
             placeholder="Oque está procurando hoje?"
           />
         </PopoverTrigger>
@@ -54,8 +53,8 @@ export function SearchInput() {
           onFocus={() => textInput?.current?.focus()}
         >
           <div className="grid gap-2">
-            {products.length ? products.map(({ name }) =>
-              <Button className="space-y-0" variant="link">
+            {products.length ? products.map(({ id, name }) =>
+              <Button key={id} className="space-y-0" variant="link">
                 <p className="text-sm text-muted-foreground">
                   {name}
                 </p>

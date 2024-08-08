@@ -1,12 +1,15 @@
 import { RouterProvider } from "react-router-dom"
+import { CartContextProvider } from "./contexts/CartContext"
 import { ProductContextProvider } from "./contexts/ProductContext"
 import { router } from "./routes"
 
 function App() {
   return (
-    <ProductContextProvider>
-      <RouterProvider router={router} />
-    </ProductContextProvider>
+    <CartContextProvider>
+      <ProductContextProvider>
+        <RouterProvider router={router} />
+      </ProductContextProvider>
+    </CartContextProvider>
   )
 }
 

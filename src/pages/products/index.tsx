@@ -18,7 +18,7 @@ function Products() {
 
           <div className="flex flex-col">
             {products.map(({ id, name }) =>
-              <CardProduct key={id} name={name} />
+              <CardProduct key={id} name={name} id={id} />
             )}
           </div>
 

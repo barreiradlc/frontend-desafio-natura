@@ -6,12 +6,21 @@ import {
   CardHeader,
   CardTitle
 } from "@/components/ui/card"
+import { useCart } from "@/contexts/CartContext"
 
 type CardProps = {
-  name?: string
+  id: string
+  name: string
 }
 
-function CardProduct({ name }: CardProps) {
+function CardProduct(product: CardProps) {
+  const { addToCart } = useCart()
+  const { name } = product
+
+  function handleAddItemToCart() {
+    addToCart(product)
+  }
+
   return (
     <Card className="w-fit my-4">
       <div className="flex flex-row  items-center justify-start">
@@ -25,7 +34,10 @@ function CardProduct({ name }: CardProps) {
           <CardDescription>{name}</CardDescription>
           <CardTitle>R$ 154,90</CardTitle>
 
-          <Button className="rounded-full bg-orange-600 text-white w-full my-12 p-4 h-6">
+          <Button
+            onClick={handleAddItemToCart}
+            className="rounded-full bg-orange-600 text-white w-full my-12 p-4 h-6"
+          >
             Adicionar
           </Button>
 

@@ -46,3 +46,5 @@ function useProduct() {
 }
 
 export { ProductContext, ProductContextProvider, useProduct };
+export type { IProduct };
+

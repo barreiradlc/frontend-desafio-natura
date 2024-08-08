@@ -5,19 +5,30 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useProduct } from "@/contexts/ProductContext";
-import { useEffect, useRef, useState } from "react";
+import { IProduct } from "@/contexts/ProductContext";
+import { api } from "@/lib/http/api";
+import { useCallback, useEffect, useRef, useState } from "react";
+
+const LIMIT = 6
+
 export function SearchInput() {
-  const { products } = useProduct()
   const textInput = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState('')
+  const [products, setProducts] = useState<IProduct[]>([] as IProduct[])
   const [openResults, setOpenResults] = useState(false)
 
   useEffect(() => {
     if (query) {
       setOpenResults(true);
     }
+    fetchProducts()
 
+  }, [query])
+
+  const fetchProducts = useCallback(async () => {
+    const { data } = await api.get(`/products?query=${query}&limit=${LIMIT}`)
+
+    setProducts(data)
   }, [query])
 
   function closeResults() {
@@ -43,13 +54,18 @@ export function SearchInput() {
           onFocus={() => textInput?.current?.focus()}
         >
           <div className="grid gap-2">
-            {products.map(({ name }) =>
-              <Button className="space-y-0" variant="outline">
+            {products.length ? products.map(({ name }) =>
+              <Button className="space-y-0" variant="link">
                 <p className="text-sm text-muted-foreground">
                   {name}
                 </p>
               </Button>
-            )}
+            ) :
+              <Button className="space-y-0" variant="outline">
+                <p className="text-sm text-muted-foreground">
+                  Nenhum item encontrado
+                </p>
+              </Button>}
           </div>
         </PopoverContent>
       </Popover>

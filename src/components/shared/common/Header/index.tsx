@@ -27,7 +27,7 @@ function Header() {
               <DropdownMenuLabel>Para quem</DropdownMenuLabel>
               <DropdownMenuSeparator />
               {targetAudienceLinks.map(({ url, label }) =>
-                <Link to={url}>
+                <Link key={`${url}-${label}`} to={url}>
                   <DropdownMenuItem> {label} </DropdownMenuItem>
                 </Link>
               )}
@@ -35,7 +35,7 @@ function Header() {
               <DropdownMenuLabel>Nossas marcas</DropdownMenuLabel>
               <DropdownMenuSeparator />
               {brandLinks.map(({ url, label }) =>
-                <Link to={url}>
+                <Link key={`${url}-${label}`} to={url}>
                   <DropdownMenuItem> {label} </DropdownMenuItem>
                 </Link>
               )}

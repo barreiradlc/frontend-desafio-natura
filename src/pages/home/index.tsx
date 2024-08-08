@@ -57,7 +57,7 @@ function Home() {
 
           <div className="grid gap-4 grid-cols-4">
             {products.map(({ name }) =>
-              <CardProduct name={name} />
+              <CardProduct id={id} name={name} />
             )}
 
           </div>

@@ -9,12 +9,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useCart } from "@/contexts/CartContext"
 import { ChevronDown, ShoppingCart, User, X } from "lucide-react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { brandLinks, targetAudienceLinks } from "./baseline"
 
 function Header() {
+  const { toggleShoppingCartSheet } = useCart()
   const [showTopBar, setShowTopBar] = useState(true)
 
   function dismissTopBar() {
@@ -66,7 +68,7 @@ function Header() {
             <SearchInput />
           </div>
           <div id="links">
-            <Button variant="link">
+            <Button variant="link" onClick={toggleShoppingCartSheet}>
               <ShoppingCart />
             </Button>
             <Button variant="link">

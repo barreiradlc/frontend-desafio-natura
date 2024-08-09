@@ -9,24 +9,32 @@ import {
 import { useCart } from "@/contexts/CartContext"
 
 type CardProps = {
-  id: string
-  name: string
+  cardItem: {
+    id: string
+    quantity: number
+    productId: string
+    product: {
+      id: string
+      name: string
+    }
+  }
 }
 
-function CardProduct(product: CardProps) {
+function CardCartItem({ cardItem: { product } }: CardProps) {
   const { addToCart } = useCart()
   const { name } = product
 
   function handleAddItemToCart() {
-    addToCart({ product })
+    // addToCart({ product })
+    console.log(product)
   }
 
   return (
     <Card className="w-1/2 my-4">
-      <div className="flex flex-row  items-center justify-start">
+      <div className="flex flex-row items-center justify-start">
         <div className="p-4">
           <img
-            className="w-32"
+            className="w-50"
             src="https://production.na01.natura.com/on/demandware.static/-/Sites-natura-br-storefront-catalog/default/dwcfd986ca/NATBRA-95575_2.jpg"
             alt={name} />
         </div>
@@ -48,4 +56,4 @@ function CardProduct(product: CardProps) {
 }
 
 
-export { CardProduct }
+export { CardCartItem }
